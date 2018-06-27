@@ -1,0 +1,18 @@
+%section
+  = render 'shared/search_bar'
+
+%hr
+
+%section
+  .row
+    - 4.times do
+      .col-6
+        .card
+        %img.card-img-top{:alt => "Card image cap", :src => "/jobs.jpeg"}/
+        .card-body
+          %h5.card-title Software Engineer
+          %p.card-text WOBB Co.
+
+          %div.mb-3
+            %span.badge.badge-pill.badge-secondary Information Technology
+          %a.btn.btn-primary{:href => "#"} More Details

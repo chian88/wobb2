@@ -1,0 +1,13 @@
+%section
+  .card.mb-2
+    .card-header
+      Login Page
+    .card-body.col-6
+      %form
+        .form-group
+          %label{:for => "email"} Email address
+          %input#email.form-control{:placeholder => "Enter email", :type => "email"}
+        .form-group
+          %label{:for => "password"} Password
+          %input.form-control{:placeholder => "Password", :type => "password"}/
+        %button.btn.btn-primary{:type => "submit"} Submit

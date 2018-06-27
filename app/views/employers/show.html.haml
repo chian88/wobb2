@@ -1,0 +1,20 @@
+%section.text-center
+  .jumbotron.jumbotron-fluid
+    .container-fluid
+      %h2= @employer.name
+
+%section.my-3
+  %h5 Our Story
+  %p= @employer.story
+
+%section.my-3
+  %h5 Our Benefits
+  %ul.no-padding
+    - 4.times do
+      %p Health Benefits
+
+%section.my-3
+  %h5 Our vacancies
+  .row
+    - @employer.jobs.each do |job|
+      = render partial: 'jobs/job', object: job

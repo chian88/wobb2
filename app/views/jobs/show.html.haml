@@ -1,0 +1,31 @@
+%section.text-center
+	.jumbotron.jumbotron-fluid
+		.container-fluid
+			%h2= @job.title
+			%h3.py-3= @job.employer.name
+			%button.btn.btn-dark{ :type => 'button' } Apply Now
+
+%section.my-3
+	%h5 About the Job
+	%p= @job.description
+
+%section.my-3
+	%h5 Job Requirements
+	%p= @job.requirement
+
+%section.my-3
+	.row
+		.col-6
+			%h5 Additional Info
+			%ul
+				%li
+					%span.badge.badge-secondary= @job.industry_title
+				%li
+					%span.badge.badge-secondary= @job.job_type_title
+				%li
+					%span.badge.badge-secondary= @job.state_title
+
+%section.my-3
+	%a{ :href => "#" }
+	= link_to employer_path(@job.employer), nil do
+		%h5 Company Page

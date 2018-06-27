@@ -1,0 +1,25 @@
+%section
+  .card.mb-2
+    .card-header
+      User Profile
+    .card-body
+      %h5.card-title= @user.name
+      %p.card-text Email: #{@user.email}
+      = link_to "Update Profile", edit_user_path(@user), class: 'btn btn-primary'
+
+%section
+  .card.mb-2
+    .card-header
+      Activity
+    .card-body
+      %p.card-text Jobs Applied: 30
+      %p.card-text Jobs Rejected: 10
+      %p.card-text Employers Viewed: 200
+      %p.card-text Employers Employers: KIV
+
+%section
+  .card.mb-2
+    .card-header
+      Short Summary
+    .card-body
+      %p.card-text= @user.summary

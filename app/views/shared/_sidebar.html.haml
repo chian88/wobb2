@@ -1,0 +1,26 @@
+%ul.nav.flex-column.bg-light
+  %li.nav-item
+    = link_to "Log in", login_path, class: 'nav-link'
+  %li.nav-item
+    = link_to "Register as User", register_path, class: 'nav-link'
+  %li.nav-item
+    = link_to "Register as Employer", register_employer_path, class: 'nav-link'
+  - if current_user
+    %li.nav-item
+      %a.nav-link.active{:href => "#"} Companies
+    %li.nav-item
+      = link_to "Jobs", jobs_path, class: 'nav-link'
+
+    %li.nav-item
+      = link_to "Log out", logout_path, class: 'nav-link'
+    %hr
+    %li.nav-item
+      = link_to 'My Dashboard', dashboard_path, class: 'nav-link'
+    %li.nav-item
+      = link_to "Update Profile", edit_user_path(current_user), class: 'nav-link'
+    %li.nav-item
+      %a.nav-link{:href => "#"} Change Password
+    %li.nav-item
+      %a.nav-link{:href => "#"} Job Preferences
+    %li.nav-item
+      %a.nav-link{:href => "#"} Job History

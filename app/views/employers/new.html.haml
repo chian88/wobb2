@@ -1,0 +1,17 @@
+%section
+  .card.mb-2
+    .card-header
+      Register Page for Employers
+      = render 'shared/form_error', obj: @employer
+    .card-body.col-6
+      = form_for @employer do |f|
+        .form-group
+          = f.label :name, "Company Name"
+          = f.text_field :name, { class: 'form-control', id: 'name', placeholder: 'Enter full name' }
+        .form-group
+          = f.label :email, "Email Address"
+          = f.email_field :email, { class: 'form-control', id: 'email', placeholder: 'Enter email' }
+        .form-group
+          = f.label :password
+          = f.password_field :password, { class: 'form-control', placeholder: "Password" }
+        = f.submit "Register", class: 'btn btn-primary'

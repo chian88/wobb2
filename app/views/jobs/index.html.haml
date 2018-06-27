@@ -1,0 +1,9 @@
+%section
+  = render 'shared/search_bar'
+
+%hr
+
+%section
+  .row 
+    - @jobs.each do |job|
+      = render partial: 'job', object: job

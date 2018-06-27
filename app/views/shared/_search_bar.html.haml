@@ -1,0 +1,20 @@
+= form_tag filter_job_path, method: :get do
+  .row
+    .col
+      .form-group
+        = label_tag "Industry"
+        = select_tag "job[industry]", options_for_select([["Accounting and Finance", "AC"], ["Consulting", "CON"], ["Information Technology", "IT"], ["Education", "ED"]]), include_blank: true, class: 'form-control'
+
+    .col
+      .form-group
+        = label_tag "State"
+        = select_tag "job[state]", options_for_select([["Selangor", "selangor"], ["Kuala Lumpur", "kl"], ["Johor", "johor"], ["Penang", "penang"]]), include_blank: true, class: 'form-control'
+
+    .col
+      .form-group
+        = label_tag "Job Type"
+        = select_tag "job[job_type]", options_for_select([["Full Time", "full_time"], ["Part Time", "part_time"], ["Intern", "intern"], ["Contract", "contract"]]), include_blank: true, class: 'form-control'
+
+  .row
+    .mx-auto
+      = submit_tag "Search", class: "btn btn-primary text-center"

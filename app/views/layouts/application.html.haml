@@ -1,0 +1,22 @@
+!!! 5
+%html(lang="en-US")
+	%head
+		%title Wobb
+		= csrf_meta_tag
+		= stylesheet_link_tag 'application'
+		= javascript_include_tag 'application'
+	%body
+		%div.container
+			%header.head_space
+				= render 'shared/header'
+			%main.row
+				.col-3
+					%section
+						= render 'shared/sidebar'
+				.col-9
+					%section
+						= render "shared/messages"
+						= yield
+			%footer
+				/ = render 'shared/footer'
+

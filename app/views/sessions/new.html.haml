@@ -1,0 +1,16 @@
+%section
+  .card.mb-2
+    .card-header
+      Login Page
+    .card-body.col-6
+      = form_tag sessions_path do
+        .form-group
+          = label_tag :email, "Email Address"
+          = email_field_tag :email, nil, { class: 'form-control', id: 'email', placeholder: 'Enter email' }
+        .form-group
+          = label_tag :password
+          = password_field_tag :password, nil, { class: 'form-control', placeholder: "Password" }
+        .form-group.form-check
+          = check_box_tag :employer, true, class: 'form-check-input'
+          = label_tag :employer, 'Log in as employer?', class: 'form-check-label'
+        = submit_tag "Log In", class: 'btn btn-primary'

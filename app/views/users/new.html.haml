@@ -1,0 +1,17 @@
+%section
+  .card.mb-2
+    .card-header
+      Register Page
+      = render 'shared/form_error', obj: @user
+    .card-body.col-6
+      = form_for @user do |f|
+        .form-group
+          = f.label :name, "Full Name"
+          = f.text_field :name, { class: 'form-control', id: 'name', placeholder: 'Enter full name' }
+        .form-group
+          = f.label :email, "Email Address"
+          = f.email_field :email, { class: 'form-control', id: 'email', placeholder: 'Enter email' }
+        .form-group
+          = f.label :password
+          = f.password_field :password, { class: 'form-control', placeholder: "Password" }
+        = f.submit "Register", class: 'btn btn-primary'

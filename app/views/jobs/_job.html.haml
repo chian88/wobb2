@@ -1,0 +1,10 @@
+.col-6
+  .card
+  %img.card-img-top{:alt => "Card image cap", :src => "/jobs.jpeg"}/
+  .card-body
+    %h5.card-title= job.title
+    %p.card-text= job.employer.name
+
+    %div.mb-3
+      %span.badge.badge-pill.badge-secondary= job.industry_title
+    = link_to "More Details", job_path(job), class: 'btn btn-primary'

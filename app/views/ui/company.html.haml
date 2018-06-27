@@ -1,0 +1,29 @@
+%section.text-center
+  .jumbotron.jumbotron-fluid
+    .container-fluid
+      %h2 WOBB
+
+%section.my-3
+  %h5 Our Story
+  %p We are a young startup creating clothing perfect for the modern business traveller. Great technology is around us. Why not use it to make high quality shirts that are comfortable and look good all day long? 
+
+%section.my-3
+  %h5 Our Benefits
+  %ul.no-padding
+    - 4.times do
+      %p Health Benefits
+
+%section.my-3
+  %h5 Our vacancies
+  .row
+    - 4.times do
+      .col-3
+        .card
+        %img.card-img-top{:alt => "Card image cap", :src => "/jobs.jpeg"}/
+        .card-body
+          %h5.card-title Software Engineer
+          %p.card-text WOBB Co.
+
+          %div.mb-3
+            %span.badge.badge-pill.badge-secondary Information Technology
+          %a.btn.btn-primary{:href => "#"} More Details
