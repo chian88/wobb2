@@ -30,6 +30,43 @@ describe EmployersController do
 	end
 
 	describe 'POST create' do
+		context 'with valid input' do
+			before do
+				post :create, params: { employer: Fabricate.attributes_for(:employer) }
+			end
+			it 'creates @employer' do
+				expect(assigns(:employer)).to be_instance_of Employer
+			end
 
+			it 'creates a record in Employer' do
+				expect(Employer.count).to eq(1)
+			end
+
+			it 'sets a flash[:success] message' do
+				expect(flash[:success]).to be_present
+			end
+
+			it 'redirect to login page' do
+				expect(response).to redirect_to login_path
+			end
+		end
+
+		context 'with invalid input' do
+			before do
+				post :create, params: { employer: { name: 'insufficient data' } }
+			end
+
+			it 'does not create a record in Employer' do
+				expect(Employer.count).to eq(0)
+			end
+
+			it 'sets a flash[:warning] message' do
+				expect(flash[:warning]).to be_present
+			end
+
+			it 'render the :new template' do
+				expect(response).to render_template :new
+			end
+		end
 	end
 end

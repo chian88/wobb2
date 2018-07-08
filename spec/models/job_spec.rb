@@ -5,6 +5,8 @@ describe Job do
 	it { should validate_presence_of(:title) }
 	it { should validate_presence_of(:description) }
 	it { should validate_presence_of(:requirement) }
+	it { should have_many(:job_applications) }
+	it { should have_many(:users) }
 
 	describe '#industry_title' do
 		it 'returns the industry title accurately' do

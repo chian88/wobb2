@@ -3,7 +3,8 @@
 		.container-fluid
 			%h2= @job.title
 			%h3.py-3= @job.employer.name
-			%button.btn.btn-dark{ :type => 'button' } Apply Now
+			- if current_user
+				= link_to "Apply Now", job_apply_path(@job), class: "btn btn-dark", method: 'post'
 
 %section.my-3
 	%h5 About the Job
@@ -25,7 +26,15 @@
 				%li
 					%span.badge.badge-secondary= @job.state_title
 
+- if current_employer
+	
+
+	%section.my-3
+		= link_to job_application_path(@job) do
+			Job Applicants #{@job.users.count}
+
+
+
 %section.my-3
-	%a{ :href => "#" }
 	= link_to employer_path(@job.employer), nil do
 		%h5 Company Page

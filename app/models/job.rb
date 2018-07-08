@@ -1,6 +1,10 @@
 class Job < ApplicationRecord
 	belongs_to :employer
+	has_many :job_applications
+	has_many :users, through: :job_applications
 	validates_presence_of :title, :description, :requirement
+
+
 
 	def industry_title
 		case industry

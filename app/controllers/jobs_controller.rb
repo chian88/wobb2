@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-	before_action :require_user
+	before_action :require_account
 	
 	def index
 		@jobs = Job.all
@@ -13,6 +13,12 @@ class JobsController < ApplicationController
 		job_filter_data = extract_job_data
 		@jobs = Job.where(job_filter_data)
 		render :index
+	end
+
+	def applicants
+		job = Job.find(params[:job_id])
+
+		@job_applicants = job.users
 	end
 
 	private

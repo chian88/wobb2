@@ -27,6 +27,7 @@ describe SessionsController do
 			it 'puts the signed in user to the session' do
 				expect(session[:user_id]).to eq(alice.id)
 			end
+
 			it 'sets a flash message' do
 				expect(flash[:success]).to be_present
 			end
