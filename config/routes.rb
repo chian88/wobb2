@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 	# get 'ui/:action', controller: 'ui'
 
 	root to: 'pages#front'
+	get 'register_page', to: 'pages#register'
 
 	resources :jobs, only: [:index, :show] do
-		post '/apply', to: 'job_applications#create'
-		get '/application', to: 'jobs#applicants'
+		resources :applications, only: [:create, :index]
+		# post '/apply', to: 'job_applications#create'
+		# get '/application', to: 'jobs#applicants'
 	end
 	get '/filter_job', to: 'jobs#filter'
 
@@ -16,9 +18,8 @@ Rails.application.routes.draw do
 	get '/login', to: 'sessions#new'
 	get '/logout', to: 'sessions#destroy'
 	resources :sessions, only: [:create]
-	post '/employer_login', to: 'sessions#create_for_employer'
 
-	get '/register', to: 'users#new'
+	get '/register_user', to: 'users#new'
 	resources :users, only: [:create, :edit, :update]
 
 	get '/dashboard', to: 'users#show'

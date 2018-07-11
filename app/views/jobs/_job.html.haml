@@ -6,5 +6,5 @@
     %p.card-text= job.employer.name
 
     %div.mb-3
-      %span.badge.badge-pill.badge-secondary= job.industry_title
+      %span.badge.badge-pill.badge-secondary= industry_title(job)
     = link_to "More Details", job_path(job), class: 'btn btn-primary'

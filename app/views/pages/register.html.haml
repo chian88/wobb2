@@ -1,0 +1,16 @@
+.row
+  .col-6
+    .card
+      .card-header
+        Register as Job Seeker
+      .card-body
+        %p.card-text Find job.
+        = link_to "Register", register_user_path, class: 'btn btn-primary'
+
+  .col-6
+    .card
+      .card-header
+        Register as Employer
+      .card-body
+        %p.card-text Create job.
+        = link_to "Register", register_employer_path, class: 'btn btn-primary'

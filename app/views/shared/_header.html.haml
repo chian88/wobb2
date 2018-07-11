@@ -1,26 +1,15 @@
 %nav.navbar.navbar-expand-lg.navbar-light.header_color
   %a.navbar-brand{:href => "#"} WOBB
-  - if logged_in_user
-    %button.navbar-toggler{"data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
-      %span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-      %ul.navbar-nav.ml-auto
-        %li.nav-item
-          %a.nav-link{:href => "#"} Home
-        %li.nav-item
-          %a.nav-link{:href => "#"} Companies
-        %li.nav-item
-          %a.nav-link{:href => "#"} Jobs
-        %li.nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Notifications
-          .dropdown-menu
-            %a.dropdown-item{:href => "#"} WOBB viewed your profile
-            %a.dropdown-item{:href => "#"} WOBB ask you for interviews
+  %ul.navbar-nav.ml-auto
+    - if current_user || current_employer
+      %li.nav-item.dropdown
+        %a#navbarDropdown.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Notifications
+        .dropdown-menu
+          %a.dropdown-item{:href => "#"} WOBB viewed your profile
+          %a.dropdown-item{:href => " #"} WOBB ask you for interviews
 
-
-        %li.nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}= logged_in_user.name
-          .dropdown-menu
-            %a.dropdown-item{:href => "#"} Dashboard
-            %a.dropdown-item{:href => "#"} Job History
-            %a.dropdown-item{:href => "#"} Log out
+      %li.nav-item.dropdown
+        %a#navbarDropdown.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}= (current_user || current_employer).name
+        .dropdown-menu
+          %a.dropdown-item{:href => "#"} Dashboard
+          %a.dropdown-item{:href => "#"} Log out

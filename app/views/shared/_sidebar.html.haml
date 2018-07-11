@@ -1,18 +1,10 @@
 %ul.nav.flex-column.bg-light
-  %li.nav-item
-    = link_to "Log in", login_path, class: 'nav-link'
-  %li.nav-item
-    = link_to "Register as User", register_path, class: 'nav-link'
-  %li.nav-item
-    = link_to "Register as Employer", register_employer_path, class: 'nav-link'
+
   - if current_user
     %li.nav-item
       %a.nav-link.active{:href => "#"} Companies
     %li.nav-item
       = link_to "Jobs", jobs_path, class: 'nav-link'
-
-    %li.nav-item
-      = link_to "Log out", logout_path, class: 'nav-link'
     %hr
     %li.nav-item
       = link_to 'My Dashboard', dashboard_path, class: 'nav-link'
@@ -24,3 +16,22 @@
       %a.nav-link{:href => "#"} Job Preferences
     %li.nav-item
       %a.nav-link{:href => "#"} Job History
+    %li.nav-item
+      = link_to "Log out", logout_path, class: 'nav-link'
+
+  - elsif current_employer
+    %li.nav-item
+      %a.nav-link{:href => "#"} Create Job
+    %hr
+    %li.nav-item
+      %a.nav-link{:href => "#"} Dashboard
+    %li.nav-item
+      %a.nav-link{:href => "#"} Update Profile
+    %li.nav-item
+      = link_to "Log out", logout_path, class: 'nav-link'      
+
+  - else
+    %li.nav-item
+      = link_to "Log in", login_path, class: 'nav-link'
+    %li.nav-item
+      = link_to "Not a member?", register_page_path, class: 'nav-link'

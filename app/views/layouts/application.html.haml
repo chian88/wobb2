@@ -6,15 +6,14 @@
 		= stylesheet_link_tag 'application'
 		= javascript_include_tag 'application'
 	%body
-		%div.container
-			%header.head_space
+		.container
+			%header
 				= render 'shared/header'
-			%main.row
-				.col-3
-					%section
+			%main
+				.row
+					.col-3
 						= render 'shared/sidebar'
-				.col-9
-					%section
+					.col-9
 						= render "shared/messages"
 						= yield
 			%footer

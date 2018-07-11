@@ -20,17 +20,17 @@
 			%h5 Additional Info
 			%ul
 				%li
-					%span.badge.badge-secondary= @job.industry_title
+					%span.badge.badge-secondary= industry_title(@job)
 				%li
-					%span.badge.badge-secondary= @job.job_type_title
+					%span.badge.badge-secondary= job_type_title(@job)
 				%li
-					%span.badge.badge-secondary= @job.state_title
+					%span.badge.badge-secondary= state_title(@job)
 
 - if current_employer
 	
 
 	%section.my-3
-		= link_to job_application_path(@job) do
+		= link_to job_applications_path(@job) do
 			Job Applicants #{@job.users.count}
 
 

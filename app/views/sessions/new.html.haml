@@ -11,6 +11,6 @@
           = label_tag :password
           = password_field_tag :password, nil, { class: 'form-control', placeholder: "Password" }
         .form-group.form-check
-          = check_box_tag :employer, true, class: 'form-check-input'
+          = check_box_tag :employer, false, class: 'form-check-input'
           = label_tag :employer, 'Log in as employer?', class: 'form-check-label'
         = submit_tag "Log In", class: 'btn btn-primary'
