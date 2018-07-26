@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
 	def show
 		@user = current_user
+		@jobs_applied = current_user.applications
+		@applications_accepted = current_user.applications.where(status: 'accepted')
+		@applications_rejected = current_user.applications.where(status: 'rejected')
 	end
 
 	def edit

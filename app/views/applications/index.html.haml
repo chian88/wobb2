@@ -1,12 +1,14 @@
 %section
-  %p A total of #{@job_applicants.count} users applied for this job.
+  %h5 Position: #{@job.title}
+  %p A total of #{pluralize(@applications.count, 'user')} applied for this job.
+
 
 .row
   .col-8
-    - @job_applicants.each do |applicant|
+    - @applications.each do |application|
       .card
         .card-body
-          %h5.card-title= applicant.name
-          %p.card-text= applicant.summary
-          %a.card-link{href: '#'} Hire
-          %a.card-link{href: '#'} Reject
+          %h5.card-title= application.user.name
+          %p.card-text= application.user.summary
+          = link_to "Hire", hire_path(id: application.id), method: 'put', class: 'card-link'
+          = link_to "Reject", reject_path(id: application.id), method: 'put', class: 'card-link'

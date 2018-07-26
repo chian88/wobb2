@@ -1,0 +1,37 @@
+.row
+  .col-8
+    %form
+      .form-group
+        %label{:for => "title"} Job title
+        %input.form-control{:placeholder => "Janitor", :type => "text"}/
+      .form-group
+        %label{:for => "description"} Description
+        %textarea.form-control{:rows => "3"}
+      .form-group
+        %label{:for => "description"} Requirement
+        %textarea.form-control{:rows => "3"}
+      .form-group
+        %label Industry
+        %select.form-control
+          %option Information Technology
+          %option Accounting and Finance
+          %option Consulting
+          %option Education
+      
+      .form-group
+        %label Job Type
+        %select.form-control
+          %option Full Time
+          %option Part Time
+          %option Intern 
+          %option Contract
+      
+      .form-group
+        %label State
+        %select.form-control
+          %option Selangor
+          %option Kuala Lumpur
+          %option Johor
+          %option Penang
+
+      %button.btn.btn-primary{:type => 'submit'} Create Job

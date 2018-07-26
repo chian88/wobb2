@@ -6,5 +6,12 @@ class User < ApplicationRecord
 	has_many :applications
 	has_many :jobs, through: :applications
 
+	has_many :favourites
+	has_many :favourite_jobs, through: :favourites, source: 'job'
+
 	has_secure_password
+
+	def generate_token
+		self.token = SecureRandom.urlsafe_base64
+	end
 end

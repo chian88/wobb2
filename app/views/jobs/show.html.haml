@@ -4,7 +4,8 @@
 			%h2= @job.title
 			%h3.py-3= @job.employer.name
 			- if current_user
-				= link_to "Apply Now", job_apply_path(@job), class: "btn btn-dark", method: 'post'
+				= link_to "Apply Now", job_applications_path(@job), class: "btn btn-dark", method: 'post'
+				= link_to "Save to Favourite", job_favourites_path(@job), class: "btn btn-dark", method: 'post'
 
 %section.my-3
 	%h5 About the Job

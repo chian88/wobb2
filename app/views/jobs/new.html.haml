@@ -1,0 +1,28 @@
+- if @job
+  = render 'shared/form_error', obj: @job
+
+.row
+  .col-8
+    = form_tag jobs_path do
+      .form-group
+        = label_tag "Job Title", nil, for: 'job_title'
+        = text_field_tag 'job[title]', nil, class: 'form-control', id: 'job_title'
+      .form-group
+        = label_tag "Description", nil, for: 'job_description'
+        = text_area_tag "job[description]", nil, class: 'form-control', rows: '3', id: 'job_description'
+      .form-group
+        = label_tag "Requirement", nil, for: 'job_requirement'
+        = text_area_tag "job[requirement]", nil, class: 'form-control', rows: '3', id: 'job_requirement'
+      .form-group
+        = label_tag "Industry", nil, for: 'job_industry'
+        %label Industry
+        = select_tag "job[industry]", options_for_select([['Information Technology', 'IT'], ['Accounting and Finance', 'AC'], ['Consulting', 'CON'], ['Education', 'ED']]), class: 'form-control', id: 'job_industry'
+      .form-group
+        = label_tag "Job Type", nil, for: 'job_type'
+        = select_tag 'job[job_type]', options_for_select([['Full Time', 'full_time'], ['Part Time', 'part_time'], ['Intern', 'intern'], ['Contract', 'contract']]), class: 'form-control', id: 'job_type'
+      
+      .form-group
+        = label_tag 'State', nil, for: 'job_state'
+        = select_tag 'job[state]', options_for_select([['Selangor', 'selangor'], ['Kuala Lumpur', 'kuala_lumpur'], ['Johor', 'johor'], ['Penang', 'penang']]), class: 'form-control', id: 'job_state'
+
+      = submit_tag "Create Job", class: 'btn btn-primary'

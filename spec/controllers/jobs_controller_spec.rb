@@ -22,6 +22,48 @@ describe JobsController do
 		end
 	end
 
+	describe 'POST create' do
+		context 'with valid input' do
+			let(:boss) { Fabricate(:employer) }
+			before do 
+				session[:employer_id] = boss.id
+				post :create, params: { job: Fabricate.attributes_for(:job, employer: boss) }
+			end
+			it 'creates a @job' do
+				expect(assigns(:job)).to be_instance_of Job
+			end
+			it 'creates a job record in Job' do
+				expect(Job.count).to eq(1)
+			end
+			it 'creates a flash success message' do
+				expect(flash[:success]).to be_present
+			end
+			it 'redirect to jobs_path' do
+				expect(response).to redirect_to jobs_path
+			end
+		end
+
+		context 'with invalid input' do
+			let(:boss) { Fabricate(:employer) }
+			before do
+				session[:employer_id] = boss.id
+				post :create, params: { job: { title: 'janitor'} }
+			end
+
+			it "doesn't create a job in Job" do
+				expect(Job.count).to eq(0)
+			end
+
+			it 'creates a flash warning message' do
+				expect(flash[:warning]).to be_present
+			end
+
+			it 'render :new template' do
+				expect(response).to render_template :new
+			end
+		end
+	end
+
 	describe 'GET show' do
 		context "with signed in user" do
 			it 'sets @job' do
@@ -80,5 +122,9 @@ describe JobsController do
 				expect(response).to redirect_to login_path
 			end
 		end
+	end
+
+	describe 'POST favourite' do
+		it ''
 	end
 end

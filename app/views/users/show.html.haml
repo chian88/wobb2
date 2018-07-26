@@ -12,10 +12,9 @@
     .card-header
       Activity
     .card-body
-      %p.card-text Jobs Applied: 30
-      %p.card-text Jobs Rejected: 10
-      %p.card-text Employers Viewed: 200
-      %p.card-text Employers Employers: KIV
+      %p.card-text Jobs Applied: #{@jobs_applied.count}
+      %p.card-text Applications Accepted: #{@applications_accepted.count}
+      %p.card-text Applications Rejected: #{@applications_rejected.count}
 
 %section
   .card.mb-2
@@ -23,3 +22,13 @@
       Short Summary
     .card-body
       %p.card-text= @user.summary
+
+
+%section
+  .card.mb-2
+    .card-header
+      Favourite Job
+    .card-body
+      %ul
+        - @user.favourite_jobs.each do |job|
+          %li= link_to job.title, job_path(job)
